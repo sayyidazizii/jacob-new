@@ -193,7 +193,7 @@ class AcctSavingsCashMutationController extends Controller
                     ->first()->journal_voucher_id;
 
                 if ($data['mutation_id'] == $preferencecompany['cash_deposit_id']) {
-                    $account_id_default_status = AcctAccount::select('account_default_status')
+                    $account_id_default_status_cash_1 = AcctAccount::select('account_default_status')
                         ->where('acct_account.account_id', $preferencecompany['account_cash_id'])
                         ->where('acct_account.data_state', 0)
                         ->first()->account_default_status;
@@ -204,7 +204,7 @@ class AcctSavingsCashMutationController extends Controller
                         'journal_voucher_description' => 'SETORAN TUNAI ' . $acctsavingscash_last['member_name'],
                         'journal_voucher_amount' => $data['savings_cash_mutation_amount'],
                         'journal_voucher_debit_amount' => $data['savings_cash_mutation_amount'],
-                        'account_id_default_status' => $account_id_default_status,
+                        'account_id_default_status' => $account_id_default_status_cash_1,
                         'account_id_status' => 0,
                         'created_id' => auth()->user()->user_id,
                     ];
@@ -282,7 +282,7 @@ class AcctSavingsCashMutationController extends Controller
                     ];
                     AcctJournalVoucherItem::create($data_debet);
 
-                    $account_id_default_status = AcctAccount::select('account_default_status')
+                    $account_id_default_status_cash_2 = AcctAccount::select('account_default_status')
                         ->where('acct_account.account_id', $preferencecompany['account_cash_id'])
                         ->where('acct_account.data_state', 0)
                         ->first()->account_default_status;
@@ -293,7 +293,7 @@ class AcctSavingsCashMutationController extends Controller
                         'journal_voucher_description' => 'PENARIKAN TUNAI ' . $acctsavingscash_last['member_name'],
                         'journal_voucher_amount' => $data['savings_cash_mutation_amount'],
                         'journal_voucher_credit_amount' => $data['savings_cash_mutation_amount'],
-                        'account_id_default_status' => $account_id_default_status,
+                        'account_id_default_status' => $account_id_default_status_cash_2,
                         'account_id_status' => 1,
                         'created_id' => auth()->user()->user_id,
                     ];
