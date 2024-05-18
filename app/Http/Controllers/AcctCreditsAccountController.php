@@ -467,7 +467,7 @@ class AcctCreditsAccountController extends Controller
 
                 $data_debet = array (
                     'journal_voucher_id'			=> $journal_voucher_id,
-                    'account_id'					=> $preferencecompany['account_provision_income_id'],
+                    'account_id'					=> $preferencecompany['account_cash_id'],
                     'journal_voucher_description'	=> $data_journal['journal_voucher_title'],
                     'journal_voucher_amount'		=> $provisi,
                     'journal_voucher_debit_amount'	=> $provisi,
@@ -775,18 +775,19 @@ class AcctCreditsAccountController extends Controller
 
             }
             if($acctcreditsaccount['credits_account_insurance'] !='' && $acctcreditsaccount['credits_account_insurance'] > 0){
-                $account_id_default_status 			= AcctAccount::where('account_id',$preferencecompany['account_cash_id'])
+                $account_id_default_status_insurance 			= AcctAccount::where('account_id',$preferencecompany['account_cash_id'])
                 ->where('data_state',0)
                 ->first()
                 ->account_default_status;
 
+                // dd($account_id_default_status);
                 $data_debet = array (
                     'journal_voucher_id'			=> $journal_voucher_id,
                     'account_id'					=> $preferencecompany['account_cash_id'],
                     'journal_voucher_description'	=> $data_journal['journal_voucher_title'],
                     'journal_voucher_amount'		=> $acctcreditsaccount['credits_account_insurance'],
                     'journal_voucher_debit_amount'	=> $acctcreditsaccount['credits_account_insurance'],
-                    'account_id_default_status'		=> $account_id_default_status,
+                    'account_id_default_status'		=> $account_id_default_status_insurance,
                     'account_id_status'				=> 0,
                     'created_id' 					=> auth()->user()->user_id,
                 );

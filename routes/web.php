@@ -102,6 +102,9 @@ use App\Http\Controllers\SystemUserGroupController;
 use App\Http\Controllers\TaxReportController;
 use App\Http\Controllers\UsersController;
 use App\Http\Controllers\WhatsappController;
+use App\Http\Controllers\AcctCreditsPaymentInsensiveController;
+
+
 use App\Models\RequestLog;
 use Illuminate\Support\Facades\Route;
 
@@ -1015,6 +1018,16 @@ Route::middleware(['auth','loged'])->group(function () {
     //     Route::post('/add', [WhatsappController::class, 'add'])->name('add');
     //     Route::post('/process-add', [WhatsappController::class, 'process-add'])->name('process-add');
     // });
+    
+     //CreditsIntensive pages
+     Route::prefix('credits-payment-intensive')->controller(AcctCreditsPaymentInsensiveController::class)->name('crd-payment-intensive.')->group(function () {
+        Route::get('/',  'report')->name('report');
+        Route::get('/ao', 'getOffice')->name('get-ao');
+        Route::get('/account',  'account')->name('account');
+        Route::post('/report/viewport',  'reportViewport')->name('p-viewport');
+        Route::post('/account/viewport',  'accountViewport')->name('a-viewport');
+    });
+    
 
     Route::prefix('documentation')->controller(ApiController::class)->name('dc.')->group(function () {
         Route::get('/',  'index')->name('index');
