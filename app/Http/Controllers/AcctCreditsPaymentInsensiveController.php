@@ -102,7 +102,7 @@ class AcctCreditsPaymentInsensiveController extends Controller
       }
       $export = "";
       $header="<table cellspacing=\"0\" cellpadding=\"1\" border=\"0\"><tr>
-            <td><div style=\"text-align: center; font-size:14px\">INTENSIF ANGSURAN  TGL : &nbsp; ".date('d-m-Y',strtotime($sesi['start_date']))." - ".date('d-m-Y',strtotime($sesi['end_date']))."</div></td>
+            <td><div style=\"text-align: center; font-size:14px\">INSENTIF ANGSURAN  TGL : &nbsp; ".date('d-m-Y',strtotime($sesi['start_date']))." - ".date('d-m-Y',strtotime($sesi['end_date']))."</div></td>
             </tr></table>";
       if(!empty($sesi['office_id'])){
             $header .= "<table cellspacing=\"0\" cellpadding=\"1\" border=\"0\" width=\"100%\"><tr>
@@ -157,7 +157,7 @@ class AcctCreditsPaymentInsensiveController extends Controller
             <td style=\"border-top: 1px solid black\"><div style=\"font-size:10;text-align:right\">".number_format($totalmargin, 2)."</div></td>
           </tr> 
           <tr>
-            <td colspan =\"3\" ><div style=\"font-size:10;text-align:left;font-style:italic\">Intensif : 10 % x ".number_format($totalmargin, 2)." = Rp.". number_format($intensive) ." </div></td>
+            <td colspan =\"3\" ><div style=\"font-size:10;text-align:left;font-style:italic\">Insentif : 10 % x ".number_format($totalmargin, 2)." = Rp.". number_format($intensive) ." </div></td>
             <td ><div style=\"font-size:10;font-weight:bold;text-align:center\"></div></td>
             <td ><div style=\"font-size:10;text-align:right\"></div></td>
             <td ><div style=\"font-size:10;text-align:right\"></div></td>

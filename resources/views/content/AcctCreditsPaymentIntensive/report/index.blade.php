@@ -25,7 +25,7 @@ $(document).ready(function () {
     <div class="card mb-5 mb-xl-10">
         <div class="card-header border-0">
             <div class="card-title m-0">
-                <h3 class="fw-bolder m-0">{{ __('Intensif Angsuran Bunga') }}</h3>
+                <h3 class="fw-bolder m-0">{{ __('Insentif Angsuran Bunga') }}</h3>
             </div>
         </div>
 
