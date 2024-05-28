@@ -240,7 +240,7 @@ class AcctSavingsAccountController extends Controller
             ->first()
             ->account_id;
 
-            $account_id_default_status = AcctAccount::select('account_default_status')
+            $account_id_default_status_simp = AcctAccount::select('account_default_status')
 			->where('acct_account.account_id', $account_id)
 			->where('acct_account.data_state', 0)
             ->first()
@@ -252,6 +252,7 @@ class AcctSavingsAccountController extends Controller
                 'journal_voucher_description'	=> $data_journal['journal_voucher_title'],
                 'journal_voucher_amount'		=> $data['savings_account_first_deposit_amount']-$preferencecompany['savings_account_administration'],
                 'journal_voucher_credit_amount'	=> $data['savings_account_first_deposit_amount']-$preferencecompany['savings_account_administration'],
+                'account_id_default_status'		=> $account_id_default_status_simp,
                 'account_id_status'				=> 1,
                 'created_id' 					=> auth()->user()->user_id,
             );
